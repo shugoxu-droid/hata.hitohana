@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HATA | HITOHANA - Portfolio</title>
+    <style>
+        :root {
+            --bg-black: #0d0d0d;
+            --main-silver: #e0e0e0;
+            --accent-red: #A31D23; /* MADE BY TTTへの敬意を込めた赤 */
+            --text-gray: #a0a0a0;
+            --dark-card: #141414;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--main-silver);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            position: relative;
+            background-color: var(--bg-black);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://mototimes-web.com/wp-content/uploads/A_CX2I3576x.jpg'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; 
+            filter: grayscale(100%) contrast(120%);
+            z-index: 0;
+        }
+
+        .logo, .sub-logo {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 15px rgba(0,0,0,0.8);
+        }
+
+        .logo {
+            font-size: clamp(2rem, 8vw, 4rem);
+            letter-spacing: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sub-logo {
+            color: var(--text-gray);
+            font-size: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            border-left: 4px solid var(--accent-red);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* 技術スタック */
+        .skills {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .skill-badge {
+            border: 1px solid #444;
+            padding: 8px 18px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            background-color: var(--dark-card);
+        }
+
+        /* Instagramギャラリー */
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .insta-grid img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            filter: grayscale(100%);
+            border: 1px solid #333;
+            transition: 0.5s ease;
+        }
+
+        .insta-grid img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+            border-color: var(--accent-red);
+        }
+
+        /* SNSリンク */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: var(--main-silver);
+            transition: 0.3s;
+            background-color: var(--dark-card);
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-red);
+            background-color: #1a1a1a;
+            transform: translateY(-5px);
+        }
+
+        .contact-item .label {
+            font-size: 0.7rem;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item .value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: #444;
+            font-size: 0.75rem;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">HATA</div>
+    <div class="sub-logo">HITOHANA / 一花</div>
+</header>
+
+<div class="container">
+    <section>
+        <h2 class="section-title">SKILLS & ARCHIVE</h2>
+        <div class="skills">
+            <span class="skill-badge">Java (Silver Candidate)</span>
+            <span class="skill-badge">SQL / Database</span>
+            <span class="skill-badge">Google Apps Script</span>
+            <span class="skill-badge">Instagram API Integration</span>
+            <span class="skill-badge">SR400 5th Gen Maintenance</span>
+            <span class="skill-badge">Industrial Design Aesthetics</span>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">VISUAL LOG</h2>
+        <div id="insta-feed" class="insta-grid">
+            <p style="color: #444;">Loading from Instagram API...</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">SOCIAL LINKS</h2>
+        <div class="contact-grid">
+            <a href="https://www.instagram.com/hata.hitoha/" target="_blank" class="contact-item">
+                <span class="label">Instagram</span>
+                <span class="value">@hata.hitoha</span>
+            </a>
+            <a href="https://twitter.com/hata_hitohana" target="_blank" class="contact-item">
+                <span class="label">X (Twitter)</span>
+                <span class="value">Follow on X</span>
+            </a>
+            <a href="https://www.youtube.com/@hata.hitohana" target="_blank" class="contact-item">
+                <span class="label">YouTube</span>
+                <span class="value">Watch Channel</span>
+            </a>
+            <a href="https://app.palmu.jp/users/895e1dee5bc84f88a48a" target="_blank" class="contact-item">
+                <span class="label">Palmu</span>
+                <span class="value">Watch Channel</span>
+            </a>
+            <a href="https://twitter.com/haguhatattyo" target="_blank" class="contact-item">
+                <span class="label">X (Twitter)</span>
+                <span class="value">Follow on X</span>
+            </a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div>&copy; 2026 HATA HITOHANA. All rights reserved.</div>
+    <div style="color: #666; font-style: italic; margin-top: 10px;">Designed and Coded by SHUGO (Powered by AI)</div>
+</footer>
+
+<script>
+    const accessToken = 'IGAANNkFP9ejBBZAGFXZAGZAOd0ducUt5b2swaVBHZAkRLVHl4OExwRDZAYbDB1U214dzFadjdKTWNBNDhkajRFNV9mQl9RVUVuYi01VmQwNjBfMHBZAcXRZAQUZA3TmhSRnVzemZAFSnR6bTVRMDVOVU40eTBnZAjZAxNk5xbWhldC1PaVI2SQZDZD';
+
+    async function loadInsta() {
+        try {
+            const res = await fetch(`https://graph.instagram.com/me/media?fields=id,media_url,permalink&access_token=${accessToken}`);
+            const json = await res.json();
+            const container = document.getElementById('insta-feed');
+            if (json.data) {
+                container.innerHTML = '';
+                json.data.slice(0, 8).forEach(post => {
+                    const a = document.createElement('a');
+                    a.href = post.permalink; a.target = '_blank';
+                    const img = document.createElement('img');
+                    img.src = post.media_url; a.appendChild(img);
+                    container.appendChild(a);
+                });
+            }
+        } catch (e) { console.error("Insta Error"); }
+    }
+    loadInsta();
+</script>
+
+</body>
+</html>
