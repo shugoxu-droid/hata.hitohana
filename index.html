@@ -22,6 +22,7 @@
             overflow-x: hidden;
         }
 
+        /* ヘッダー背景 */
         header {
             height: 60vh;
             display: flex;
@@ -53,7 +54,7 @@
         }
 
         .logo {
-            font-size: clamp(2rem, 8vw, 4rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             letter-spacing: 0.8rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -89,6 +90,7 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
         .skill-badge {
@@ -97,6 +99,31 @@
             border-radius: 2px;
             font-size: 0.85rem;
             background-color: var(--dark-card);
+        }
+
+        /* ★自己紹介ページへのボタン設定★ */
+        .profile-btn-container {
+            margin: 40px 0;
+            text-align: left; /* 無骨に左寄せ */
+        }
+
+        .profile-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--accent-red);
+            color: var(--main-silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            background-color: transparent;
+        }
+
+        .profile-btn:hover {
+            background-color: var(--accent-red);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(163, 29, 35, 0.4);
         }
 
         /* Instagramギャラリー */
@@ -185,6 +212,10 @@
             <span class="skill-badge">SR400 5th Gen Maintenance</span>
             <span class="skill-badge">Industrial Design Aesthetics</span>
         </div>
+        
+        <div class="profile-btn-container">
+            <a href="profile.html" class="profile-btn">VIEW FULL PROFILE / 自己紹介全文</a>
+        </div>
     </section>
 
     <section>
@@ -203,7 +234,7 @@
             </a>
             <a href="https://twitter.com/hata_hitohana" target="_blank" class="contact-item">
                 <span class="label">X (Twitter)</span>
-                <span class="value">Follow on X</span>
+                <span class="value">@hata_hitohana</span>
             </a>
             <a href="https://www.youtube.com/@hata.hitohana" target="_blank" class="contact-item">
                 <span class="label">YouTube</span>
@@ -214,8 +245,8 @@
                 <span class="value">Watch Channel</span>
             </a>
             <a href="https://twitter.com/haguhatattyo" target="_blank" class="contact-item">
-                <span class="label">X (Twitter)</span>
-                <span class="value">Follow on X</span>
+                <span class="label">X (Sub Account)</span>
+                <span class="value">@haguhatattyo</span>
             </a>
         </div>
     </section>
@@ -248,6 +279,5 @@
     }
     loadInsta();
 </script>
-
 </body>
 </html>
